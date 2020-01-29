@@ -9,7 +9,7 @@
       ((null? lat) (quote ()))
       (else
          (cond
-           ((eq? (car lat) old) (cons (car lat) (cons new (cdr lat))))
+           ((eq? (car lat) old) (cons old (cons new (cdr lat))))
            (else (cons (car lat) (insertR new old (cdr lat)))))))))
 
 (insertR 'b 'a '(a c d e))

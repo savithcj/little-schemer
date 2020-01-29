@@ -1,0 +1,15 @@
+#lang racket
+(define atom?
+  (lambda (x)
+    (and (not (pair? x)) (not (null? x)))))
+
+(define multiinsertR
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else
+         (cond
+           ((eq? (car lat) old) (cons old (cons new (multiinsertR new old (cdr lat)))))
+           (else (cons (car lat) (multiinsertR new old (cdr lat)))))))))
+
+(multiinsertR 'b 'a '(a c a d a e))

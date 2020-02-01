@@ -1,7 +1,4 @@
 #lang racket
-(define atom?
-  (lambda (x)
-    (and (not (pair? x)) (not (null? x)))))
 
 (define eqan?
   (lambda (a1 a2)
